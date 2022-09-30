@@ -15,26 +15,37 @@ Functionality.
     
 Components Frontend:
 Our project will mainly focus on the frontend as all the functions can be implemented through JavaScript on our extension. Since there is no need for users to have login and further functions, we won’t implement the backend components.
+
 ● HTML: We will use HTML for the general layout of our extension. As HTML is a very useful language to implement each block and sections, we can divide our extension into several modules for different functions and purposes. In addition, HTML is capable of being tested in local machines. Furthermore, we may use css files to help us to optimize layout and overall page design.
+
 ● JavaScript: In order to realize the functions as mentioned above, we will use JavaScript to embed the code in our extension, for example, the tool bar, the notification and the todo list. The reason why we choose JavaScript as our main language for our project is because JavaScript is an object-oriented language. Compared with HTML, which is a declarative language, 
 object-oriented language can perform better and increase the efficiency for the runtime of the whole project.
- ● JSON: However, as an extension for mainstream browsers and applications (eg. Chrome, Discord, etc), we will make sure our project won’t have any problems with compatibility across browsers and application platforms. For instance, we may use json for the compatibility of our project as an extension.
+
+● JSON: However, as an extension for mainstream browsers and applications (eg. Chrome, Discord, etc), we will make sure our project won’t have any problems with compatibility across browsers and application platforms. For instance, we may use json for the compatibility of our project as an extension.
    
    
  Weekly Planning Week1
 - Project Initialization. 
+
 ● Complete the building environment in vscode. 
+
 ● Set up basic file structure. 
 Week2. 
 - Perform basic functional framework. 
+
 ● Functional underlying logic. 
+
 ● Feature user interaction logic. 
+
 ● Data Storage. 
+
 ● Data Transfer. 
 Week3
 - Partial implementation complete and running testing suits
 - Adjusting the user interface
+
 ● Interaction
+
 ● Visualization
 Week4
 - Complete testing of partial features
@@ -47,9 +58,12 @@ Week6
 - Solve bug encounter in last step
 Week7
 - Second test draft
+
 ● Test stability and possible memory issue for all features
+
 Week8
 - Third test draft:
+
 ● Optimize performance
 - Final release
 Potential Risks
