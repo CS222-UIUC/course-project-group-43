@@ -26,7 +26,7 @@ object-oriented language can perform better and increase the efficiency for the 
 ● Complete the building environment in vscode. 
 ● Set up basic file structure. 
 Week2. 
-- Perform basic functional framework. 
+- Perform basic functional framework.  
 ● Functional underlying logic. 
 ● Feature user interaction logic. 
 ● Data Storage. 
