@@ -5,7 +5,7 @@ Jialin He, Jinyu Yang, Yuteng Zhuang, Chang Li
 Pitch
 In the process of using a browser to study or work, people waste a lot of time looking at irrelevant content.
 We are going to build a browser-based time management tool as an extension for the popular softwares to help people spend their time efficiently.
-Functionality. 
+Functionality.   
 1. Users can set the length of timer, breakpoints, and other side tools.  
 2. Users can view the available browser notifications. 
 3. Users can track using stats for each experience. 
