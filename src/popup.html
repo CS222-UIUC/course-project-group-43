@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html>
   <head>
-    <link rel="stylesheet" href="button.css">
+    <meta charset="UTF8" />
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
+    <!-- 计时部分 -->
+    <div id="timer">
+      <div id="countdown">
+        <span>25:00</span>
+      </div>
+      <div class="buttons">
+        <!-- 计时开始、重置 -->
+        <button id="start-btn">Begin</button>
+        <button id="end-btn">Pause</button>
+        <button id="reset-btn">Reset</button>
+        <button id="add5-btn">Add 5 mins</button>
+      </div>
+    </div>
   </body>
 </html>
