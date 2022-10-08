@@ -1,6 +1,5 @@
 import $ from "jquery";
 import Chart from "chart.js";
-import moment from "moment";
 import "daterangepicker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
