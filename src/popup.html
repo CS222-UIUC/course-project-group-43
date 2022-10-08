@@ -3,18 +3,36 @@
     <meta charset="UTF8" />
     <link rel="stylesheet" href="popup.css" />
   </head>
+  <style>
+    p#p1
+    {
+      position: absolute;
+      top: 40px;
+      left: 100px;
+    }
+
+  </style>
+  <style>
+    body
+    { 
+      background-image:url('/images/eg1.jpeg');
+      background-size: 50px 50px;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-position:bottom right; 
+    }
+    
+  </style>
   <body>
-    <!-- 计时部分 -->
     <div id="timer">
-      <div id="countdown">
-        <span>25:00</span>
-      </div>
+      <p id="p1"><font color="black"><font size="5">Time Left: 25:00</font></font></p> 
+      <background-image></background-image>
       <div class="buttons">
-        <!-- 计时开始、重置 -->
         <button id="start-btn">Begin</button>
         <button id="end-btn">Pause</button>
         <button id="reset-btn">Reset</button>
         <button id="add5-btn">Add 5 mins</button>
+        <button id="his-btn">Histories</button>
       </div>
     </div>
   </body>
