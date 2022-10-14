@@ -7,6 +7,13 @@ import "daterangepicker/daterangepicker.css";
 import "./stats.css";
 
 import Timeline from "../utils/timeline";
+import {
+  getDateLabel,
+  getDateRangeStringArray,
+  getZeroArray,
+  getFilenameDate,
+} from "../utils/utils";
+import { DATE_UNIT, TIMER_TYPE } from "../utils/constants";
 
 
 export default class Stats {
@@ -22,6 +29,15 @@ export default class Stats {
       "import-stats-hidden-input"
     );
 
+    this.ctx = document
+      .getElementById("completed-tomato-dates-chart")
+      .getContext("2d");
+    this.completedTomatoesChart = null;
+
+    this.timeline = new Timeline();
+    this.resetDateRange();
+    }
+
   handleResetStatsButtonClick() {
     if (confirm("Are you sure you want to reset your stats?")) {
       this.timeline.resetTimeline().then(() => {
@@ -32,7 +48,10 @@ export default class Stats {
 
   // Opions for selecting different date range
   resetDateRange() {
-   
+    const momentLastWeek = moment().subtract(6, "days");
+    const momentToday = moment();
+
+    this.changeStatDates(momentLastWeek.toDate(), momentToday.toDate());
   }
 
   addTomatoDateToChartData(data, date, dateUnit) {
@@ -72,7 +91,7 @@ async changeStatDates(startDate, endDate, dateUnit) {
         backgroundColor: "rgba(255,0,0,0.2)",
         pointBorderColor: "#fff",
         pointBackgroundColor: "rgba(255,0,0,1)",
-        data: ???,
+        data: getZeroArray(dateRangeStrings.length),
       },
     ],
   };
@@ -95,3 +114,5 @@ async changeStatDates(startDate, endDate, dateUnit) {
   // Date Picker
   
   // Functions need to use utils.consts to selcet different time period stats.
+  }
+}
