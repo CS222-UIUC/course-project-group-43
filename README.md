@@ -31,7 +31,6 @@ object-oriented language can perform better and increase the efficiency for the 
 
 ● Set up basic file structure. 
 Week2. 
-- Perform basic functional framework. 
 
 ● Functional underlying logic. 
 

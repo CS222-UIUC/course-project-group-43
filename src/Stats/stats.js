@@ -127,7 +127,7 @@ async changeStatDates(startDate, endDate, date) {
     
 
 
-  // Date Picker
+  // Date Picker 
   
   // Functions need to use utils.consts to selcet different time period stats.
   }
