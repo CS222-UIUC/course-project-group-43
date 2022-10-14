@@ -1,24 +1,33 @@
 import browser from "webextension-polyfill";
+import { STORAGE_KEY } from "./constants";
 
 export default class Timeline {
-  constructor(){
-    // TODO
+  constructor() {
+    this.storage = browser.storage.local;
+    this.notifications = notifications;
   }
 
+  // PRIVATE FUNCS:
   async _getLocalTime() {
-    // TODO
+    const local_time = await browser.storage.local.get(
+      STORAGE_KEY.TIMELINE
+    );
+    return local_time[STORAGE_KEY.TIMELINE];
   }
 
   async _setLocalTime(time) {
-    // TODO
+    await browser.storage.local.set({ [STORAGE_KEY.TIMELINE]: time });
   }
 
   async _getSyncTime() {
-    // TODO
+    const sync_time = await browser.storage.sync.get(
+      STORAGE_KEY.TIMELINE
+    );
+    return sync_time[STORAGE_KEY.TIMELINE];
   }
 
   async _setSyncTime(time) {
-    // TODO
+    await browser.storage.sync.set({ [STORAGE_KEY.TIMELINE]: time });
   }
 
   async _resetLocalTime(time) {
@@ -27,6 +36,12 @@ export default class Timeline {
 
   async _resetSyncTime(time) {
     // TODO
+  }
+
+  // PUBLIC FUNCS:
+  async resetTimeline() {
+    await browser.storage.sync.remove(STORAGE_KEY.TIMELINE);
+    await browser.storage.local.remove(STORAGE_KEY.TIMELINE);
   }
 
   async getTimeline() {
