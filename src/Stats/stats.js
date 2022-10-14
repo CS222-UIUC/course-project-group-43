@@ -7,6 +7,13 @@ import "daterangepicker/daterangepicker.css";
 import "./stats.css";
 
 import Timeline from "../utils/timeline";
+import {
+  getDate,
+  getDateArray,
+  getZeros,
+  getFilenameDate,
+} from "../utils/utils";
+import { DATE_TYPE, TIMER_TYPE } from "../utils/const";
 
 
 export default class Stats {
@@ -21,6 +28,10 @@ export default class Stats {
     this.importStatsHiddenInput = document.getElementById(
       "import-stats-hidden-input"
     );
+    
+    this.timeline = new Timeline();
+    this.resetDateRange();
+  }
 
   handleResetStatsButtonClick() {
     if (confirm("Are you sure you want to reset your stats?")) {
@@ -32,10 +43,14 @@ export default class Stats {
 
   // Opions for selecting different date range
   resetDateRange() {
-   
+    if (confirm("Are you sure you want to reset your stats?")) {
+      this.timeline.resetTimeline().then(() => {
+        this.resetDateRange();
+      });
+    }
   }
 
-  addTomatoDateToChartData(data, date, dateUnit) {
+  addTomatoDateToChartData(data, date, date) {
     for (let i = 0; i < data.labels.length; i++) {
       if (data.labels[i] === getDateLabel(date, dateUnit)) {
         data.datasets[0].data[i]++;
@@ -50,7 +65,7 @@ export default class Stats {
     this.DurationCount.textContent = stats.Duration;
   }
 
-async changeStatDates(startDate, endDate, dateUnit) {
+async changeStatDates(startDate, endDate, date) {
   const filteredTimeline = await this.timeline.getFilteredTimeline(
     startDate,
     endDate
@@ -59,7 +74,7 @@ async changeStatDates(startDate, endDate, dateUnit) {
   const dateRangeStrings = getDateRangeStringArray(
     startDate,
     endDate,
-    dateUnit
+    date
   );
 
   const completedTomatoesChartData = {
@@ -72,7 +87,7 @@ async changeStatDates(startDate, endDate, dateUnit) {
         backgroundColor: "rgba(255,0,0,0.2)",
         pointBorderColor: "#fff",
         pointBackgroundColor: "rgba(255,0,0,1)",
-        data: ???,
+        data: getZeroArray(dateRangeStrings.length),
       },
     ],
   };
@@ -83,15 +98,37 @@ async changeStatDates(startDate, endDate, dateUnit) {
     Duration: 0,
   };
 
-    // Go through timeline
-   // Using for loop to iterate alarm and time period to count the number of timer completed then record. In [stats].
+  // Go through timeline
+  // Using for loop to iterate alarm and time period to count the number of timer completed then record. In [stats]
+  for (let timelineAlarm of filteredTimeline) {
+    switch (timelineAlarm.type) {
+      case TIMER_TYPE.TOMATO:
+        stats.tomatoes++;
+        this.addTomatoDateToChartData(
+          completedTomatoesChartData,
+          timelineAlarm.date,
+          date
+        );
+        break;
+      case TIMER_TYPE.BREAK:
+        stats.shortBreaks++;
+        break;
+      case TIMER_TYPE.DURATION_BREAK:
+        stats.Duration++;
+        break;
+      default:
+        break;
+    }
+  }
+  
+  this.setStatsText(stats);
 
-    this.setStatsText(stats);
-
-    // Setup 'Completed Tomatoes' Line Chart
+  // Setup 'Completed Tomatoes' Line Chart
     
 
 
   // Date Picker
   
   // Functions need to use utils.consts to selcet different time period stats.
+  }
+}
