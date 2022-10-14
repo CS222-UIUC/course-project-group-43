@@ -7,7 +7,7 @@ export default class Timeline {
     this.notifications = notifications;
   }
 
-  // PRIVATE FUNCS:
+  // PRIVATE FUNCS: 
   async _getLocalTime() {
     const local_time = await browser.storage.local.get(
       STORAGE_KEY.TIMELINE
