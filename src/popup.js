@@ -1,23 +1,52 @@
-let changeColor = document.getElementById("changeColor");
+var btnStart=document.getElementById("btnStart");
+var btnPause=document.getElementById("btnPause");
+var btnBreak=document.getElementById("btnBreak");
+var btnCancel=document.getElementById("btnCancel");
 
-chrome.storage.sync.get("color", ({ color }) => {
-  changeColor.style.backgroundColor = color;
-});
+ var min=document.querySelectorAll("input")[0];
+ var is_cal=false;
+ // console.log(min);
+ var sec=document.querySelectorAll("input")[1];
+ var timer;
+ btnStart.onclick=Count;
+ btnPause.onclick=Pause;
+ btnCancel.onclick=Cancel;
+ btnBreak.onclick = Break;
 
-// When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+ var audio= new Audio("https://wvw.mixloaded.com/wp-content/uploads/2022/09/Rosa_Walton_ft_Hallie_Coggins_-_I_Really_Want_to_Stay_at_Your_House_MixLoaded.Com.mp3");
+ function Count(){
+  is_cal=true;
+ }
+ function Pause(){
+  is_cal=false;
+ }
+ function Break(){
+  is_cal=false;
+  min.value=10;
+  sec.value=0;
+  audio.pause();
+ }
+  function Cancel(){
+  is_cal=false;
+  min.value=25;
+  sec.value=0;
+  audio.pause();
+ }
+ timer=setInterval(function(){
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: setPageBackgroundColor,
-  });
-});
-
-// The body of this function will be execuetd as a content script inside the
-// current page
-function setPageBackgroundColor() {
-  chrome.storage.sync.get("color", ({ color }) => {
-    document.body.style.backgroundColor = color;
-  });
-}
+ if(is_cal){
+  if(sec.value>=1 && min.value>=0){
+    sec.value--
+  }else if(min.value>0){
+    sec.value=59;
+    min.value--
+  }else{
+    is_cal=false;
+    sec.value=min.value=0;
+    audio.play();
+    alert("Time out");
+  }
+ }else{
+ min.value=min.value;
+ }
+ },1000);
