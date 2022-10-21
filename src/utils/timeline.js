@@ -30,12 +30,10 @@ export default class Timeline {
     await browser.storage.sync.set({ [STORAGE_KEY.TIMELINE]: time });
   }
 
-  async _resetLocalTime(time) {
-    // TODO
-  }
-
-  async _resetSyncTime(time) {
-    // TODO
+  async _getRawTime() {
+    const local_timeline = await this._getLocalTime();
+    const sync_timeline = await this._getSyncTime();
+    return local_timeline || sync_timeline || [];
   }
 
   // PUBLIC FUNCS:
@@ -45,19 +43,24 @@ export default class Timeline {
   }
 
   async getTimeline() {
-    // TODO
+    const raw_time = await this._getRawTime();
+    return raw_time.map((timelineAlarm) => {
+      timelineAlarm.date = new Date(timelineAlarm.date);
+      return timelineAlarm;
+    });
   }
 
   async setTimeline(timeline) {
-    // TODO
-  }
-
-  // helper funcs
-  async isEqual(timeline_1, timeline_2) {
-    // TODO
-  }
-
-  async mergeTimeline(timeline_1, timeline_2) {
-    // TODO
+    const raw_time = await this._getRawTimeline();
+    timeline.map((item) => {
+      raw_time.push(item);
+    });
+    try {
+      await this.storage.set({ [STORAGE_KEY.TIMELINE]: raw_time });
+    } catch (e) {
+      if (e.message.startsWith("QuotaExceededError")) {
+        await this.notifications.createStorageLimitNotification();
+      }
+    }
   }
 }
