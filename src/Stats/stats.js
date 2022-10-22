@@ -125,10 +125,56 @@ async changeStatDates(startDate, endDate, date) {
 
   // Setup 'Completed Tomatoes' Line Chart
     
+  this.setStatsText(stats);
+
+    // Setup 'Completed Tomatoes' Line Chart
+    if (this.completedTomatoesChart) {
+      this.completedTomatoesChart.config.data = completedTomatoesChartData;
+      this.completedTomatoesChart.update();
+    } else {
+      this.completedTomatoesChart = new Chart(this.ctx, {
+        type: "line",
+        data: completedTomatoesChartData,
+        options: {
+          tooltips: {
+            intersect: false,
+            mode: "nearest",
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  maxTicksLimit: 5,
+                  suggestedMax: 5,
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      });
+    }
+  }
+}
+
+$(document).ready(() => {
+  Chart.defaults.global.responsive = true;
+  const stats = new Stats();
 
 
   // Date Picker
-  
+  const momentLastWeek = moment().subtract(6, "days");
+  const momentToday = moment();
+
+  $('input[name="daterange"]').daterangepicker(
+    {
+      locale: {
+        format: "dddd, MMMM Do YYYY",
+      },
+    });
   // Functions need to use utils.consts to selcet different time period stats.
   }
-}
+);
