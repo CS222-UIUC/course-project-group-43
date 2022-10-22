@@ -166,15 +166,7 @@ $(document).ready(() => {
 
 
   // Date Picker
-  const momentLastWeek = moment().subtract(6, "days");
-  const momentToday = moment();
-
-  $('input[name="daterange"]').daterangepicker(
-    {
-      locale: {
-        format: "dddd, MMMM Do YYYY",
-      },
-    });
+  
   // Functions need to use utils.consts to selcet different time period stats.
   }
 );
