@@ -125,10 +125,88 @@ async changeStatDates(startDate, endDate, date) {
 
   // Setup 'Completed Tomatoes' Line Chart
     
+  this.setStatsText(stats);
 
-
-  // Date Picker 
-  
-  // Functions need to use utils.consts to selcet different time period stats.
+    // Setup 'Completed Tomatoes' Line Chart
+    if (this.completedTomatoesChart) {
+      this.completedTomatoesChart.config.data = completedTomatoesChartData;
+      this.completedTomatoesChart.update();
+    } else {
+      this.completedTomatoesChart = new Chart(this.ctx, {
+        type: "line",
+        data: completedTomatoesChartData,
+        options: {
+          tooltips: {
+            intersect: false,
+            mode: "nearest",
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  maxTicksLimit: 5,
+                  suggestedMax: 5,
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      });
+    }
   }
 }
+
+$(document).ready(() => {
+  Chart.defaults.global.responsive = true;
+  const stats = new Stats();
+
+// Date Picker
+  const momentLastWeek = moment().subtract(6, "days");
+  const momentToday = moment();
+
+  $('input[name="daterange"]').daterangepicker(
+    {
+      locale: {
+        format: "dddd, MMMM Do YYYY",
+      },
+      dateLimit: {
+        months: 1,
+      },
+      startDate: momentLastWeek,
+      endDate: momentToday,
+      ranges: {
+        "Last 7 Days": [moment().subtract(6, "days"), moment()],
+        "This week": [moment().startOf("week"), moment().endOf("week")],
+        "Last week": [
+          moment().subtract(1, "week").startOf("week"),
+          moment().subtract(1, "week").endOf("week"),
+        ],
+        "Last 30 Days": [moment().subtract(29, "days"), moment()],
+        "This Month": [moment().startOf("month"), moment().endOf("month")],
+        "Last Month": [
+          moment().subtract(1, "month").startOf("month"),
+          moment().subtract(1, "month").endOf("month"),
+        ],
+        "This Year": [moment().startOf("year"), moment().endOf("year")],
+        "Last Year": [
+          moment().subtract(1, "year").startOf("year"),
+          moment().subtract(1, "year").endOf("year"),
+        ],
+      },
+    },
+    (momentStartDate, momentEndDate, label) => {
+// Convert Moment dates to native JS dates
+      const startDate = momentStartDate.toDate();
+      const endDate = momentEndDate.toDate();
+
+      const isRangeYear = label === "This Year" || label === "Last Year";
+      const dateUnit = isRangeYear ? DATE_UNIT.MONTH : DATE_UNIT.DAY;
+
+      stats.changeStatDates(startDate, endDate, dateUnit);
+    }
+  );
+});
