@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet" href="popup.css">
  <title>TomatoClock</title>
 </head>
 
 <style>
     body
     { 
-        width:400px;
-        height:500px;
+        width:300px;
+        height:400px;
         background-image:url('http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRyHQ2vXxcOPHvDq2jRw-cs9ThmCW6HW6mRtkN4cby0KmJdCJ7KM_Cd1sy5IYVkPmPLMvK5VDw25geLXIM');
         background-size: 240px 200px;
         background-repeat:no-repeat;
         background-attachment:fixed;
-        background-position:center;
+        background-position:upleft;
     }
     
   </style>
@@ -33,22 +31,13 @@
  <input type="button" id="btnBreak" value="Break">
  <input type="button" id="btnCancel" value="Reset">
 
-
- <div class="wrapper">
-  <h2>To do List</h2>
-  <p></p>
-  <ul class="plates">
-    <li>undone</li>
-  </ul>
-  <form class="add-items">
-    <input type="text" name="item" placeholder="Item Name" required>
-    <input type="submit" value="添   加">
-  </form>
-  <div class="buttons">
-      <button data-action="clear">删除所有</button>
-      <button data-action="check">全部选中</button>
-      <button data-action="uncheck">取消全选</button>
-  </div>
+ <input type="text" name="item" placeholder="Item Name" required>
+ <input type="submit" value="Add">
+</form>
+<div class="buttons">
+   <button data-action="clear">Delete_All</button>
+   <button data-action="check">Seclet_All</button>
+   <button data-action="uncheck">Unselect</button>
 </div>
 
  <script type="text/javascript" src="background.js"></script>
