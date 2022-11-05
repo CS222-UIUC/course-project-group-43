@@ -1,15 +1,28 @@
-body {
-    /* background: url(/images/eg1.jpeg); */
-    background-color: red;
-    margin: 0;
-    width: 333px;
-    height: 70px;
+html {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.buttons {
-    width: fit-content;
-    height: fit-content;
+.wrapper {
+    padding: 20px;
+    max-width: 350px;
+    background: rgba(66, 78, 136, 0.959);
+    box-shadow: 0 0 0 5px rgba(130, 88, 88, 0.5);
+}
+
+h2 {
+    text-align: center;
     margin: auto;
+    font-weight: 200;
+}
+
+.buttons button{
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    color: rgb(85, 69, 147);
     font-size: 30px;
 }
 
