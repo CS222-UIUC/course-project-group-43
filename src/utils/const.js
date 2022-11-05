@@ -1,5 +1,11 @@
 export const NOTIFICATION_ID = "tomatoClockNotification";
 
+export const SETTINGS_KEY = {
+  MINUTES_IN_TOMATO: "minutesInTomato",
+  MINUTES_IN_SHORT_BREAK: "minutesInShortBreak",
+  MINUTES_IN_LONG_BREAK: "minutesInLongBreak"
+};
+
 export const STORAGE_KEY = {
   TIMELINE: "timeline",
   SETTINGS: "settings",
@@ -30,3 +36,9 @@ export const MONTHS = [
   "November",
   "December",
 ];
+
+export const RUNTIME_ACTION = {
+  SET_TIMER: "setTimer",
+  RESET_TIMER: "resetTimer",
+  GET_TIMER_SCHEDULED_TIME: "getTimerScheduledTime",
+};
