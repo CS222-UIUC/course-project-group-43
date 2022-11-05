@@ -10,13 +10,13 @@
 <style>
     body
     { 
-        width:300px;
-        height:400px;
+        width:400px;
+        height:500px;
         background-image:url('http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRyHQ2vXxcOPHvDq2jRw-cs9ThmCW6HW6mRtkN4cby0KmJdCJ7KM_Cd1sy5IYVkPmPLMvK5VDw25geLXIM');
-        background-size: 240px 200px;
+        background-size: 420px 320px;
         background-repeat:no-repeat;
         background-attachment:fixed;
-        background-position:upleft;
+        background-position:center;
     }
     
   </style>
@@ -31,15 +31,23 @@
  <input type="button" id="btnBreak" value="Break">
  <input type="button" id="btnCancel" value="Reset">
 
- <input type="text" name="item" placeholder="Item Name" required>
- <input type="submit" value="Add">
-</form>
-<div class="buttons">
-   <button data-action="clear">Delete_All</button>
-   <button data-action="check">Seclet_All</button>
-   <button data-action="uncheck">Unselect</button>
-</div>
 
+<div class="wrapper">
+<h2>To do List</h2>
+<p></p>
+<ul class="plates">
+  <li>list</li>
+</ul>
+<form class="add-items">
+  <input type="text" name="item" placeholder="Item Name" required>
+  <input type="submit" value="Add">
+</form>
+  <div class="buttons">
+    <button data-action="clear">Delete_All</button>
+    <button data-action="check">Seclet_All</button>
+    <button data-action="uncheck">Unselect</button>
+  </div>
+</div>
  <script type="text/javascript" src="background.js"></script>
 </body>
 </html>
