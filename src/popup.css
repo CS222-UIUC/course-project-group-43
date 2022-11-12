@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 html {
     min-height: 100vh;
     display: flex;
@@ -8,21 +9,11 @@ html {
 .wrapper {
     padding: 20px;
     max-width: 350px;
-    background: rgba(66, 78, 136, 0.959);
-    box-shadow: 0 0 0 5px rgba(130, 88, 88, 0.5);
+    background: rgba(224, 140, 140, 0.95);
+    box-shadow: 0 0 0 5px rgba(199, 74, 74, 0.809);
 }
-
 h2 {
     text-align: center;
-    margin: auto;
+    margin: 0;
     font-weight: 200;
 }
-
-.buttons button{
-    width: 100px;
-    height: 50px;
-    margin: auto;
-    color: rgb(85, 69, 147);
-    font-size: 30px;
-}
-
