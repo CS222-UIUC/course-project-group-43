@@ -50,4 +50,13 @@ export function getFilenameDate() {
       pad(date.getSeconds())
     );
 }
+
+export function getMillisecondsForSeconds(seconds) {
+  return seconds * 1000;
+}
+
+export function getMillisecondsFor(minutes) {
+  return minutes * 1000 * 60;
+}
+
   
