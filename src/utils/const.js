@@ -1,5 +1,11 @@
 export const NOTIFICATION_ID = "tomatoClockNotification";
 
+export const SETTINGS_KEY = {
+  MINUTES_IN_TOMATO: "minutesInTomato",
+  MINUTES_IN_SHORT_BREAK: "minutesInShortBreak",
+  MINUTES_IN_LONG_BREAK: "minutesInLongBreak"
+};
+
 export const STORAGE_KEY = {
   TIMELINE: "timeline",
   SETTINGS: "settings",
