@@ -30,3 +30,9 @@ export const MONTHS = [
   "November",
   "December",
 ];
+
+export const RUNTIME_ACTION = {
+  SET_TIMER: "setTimer",
+  RESET_TIMER: "resetTimer",
+  GET_TIMER_SCHEDULED_TIME: "getTimerScheduledTime",
+};
