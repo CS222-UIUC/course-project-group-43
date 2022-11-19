@@ -96,7 +96,32 @@ function toDoList() {
       .join('');
   }
 
+  function doButtonPress(e) {
+    var action = e.target.dataset.action;
+    switch (action) {
+      case 'clear':
+        items = [];
+        break;
+      case 'check':
+        items.map(function (item) {
+          return (item.done = true);
+        });
+        break;
+      case 'uncheck':
+        items.map(function (item) {
+          return (item.done = false);
+        });
+        break;
+      default:
+        return;
+    }
+    localStorage.setItem('items', JSON.stringify(items));
+    updateList(items, itemsList);
+  }
+
   addItems.addEventListener('submit', handleSubmit);
+  buttons.addEventListener('click', doButtonPress);
+
   updateList(items, itemsList);
 }
 
