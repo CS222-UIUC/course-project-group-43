@@ -6,14 +6,34 @@ export default class Settings {
     }
   
     getSettings() {
-        // TODO
+        return new Promise((resolve) => {
+          const onSuccess = (storageResults) => {
+            const settings = Object.assign(
+              {},
+              DEFAULT_SETTINGS,
+              storageResults[STORAGE_KEY.SETTINGS]
+            );
+    
+            resolve(settings);
+          };
+    
+          const onError = () => {
+            resolve(DEFAULT_SETTINGS);
+          };
+    
+          this.storage.get(STORAGE_KEY.SETTINGS).then(onSuccess, onError);
+        });
+      }
+    
+    saveSettings(settings) {
+    return this.storage.set({
+        [STORAGE_KEY.SETTINGS]: settings,
+    });
     }
-
-    saveSettings(setting) {
-        // TODO
-    }
-
+    
     resetSettings() {
-        // TODO
+    return this.storage.set({
+        [STORAGE_KEY.SETTINGS]: DEFAULT_SETTINGS,
+    });
     }
 }
