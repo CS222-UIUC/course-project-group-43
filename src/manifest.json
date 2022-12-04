@@ -1,14 +1,14 @@
 {
-  "name": "Potato Clock",
+  "name": "Tomato Timer",
   "description": "Time Management Tool",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "/background/background.js"
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "/background/popup.html",
     "default_icon": {
       "16": "/images/get_started16.png",
       "32": "/images/get_started32.png",
