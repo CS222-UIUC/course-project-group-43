@@ -1,5 +1,5 @@
 Team 43_Project Proposal
-Jialin He, Jinyu Yang, Yuteng Zhuang, Chang Li
+Jialin He, Jinyu Yang, Yuteng Zhuang(Dropped), Chang Li
   
   
 Pitch
