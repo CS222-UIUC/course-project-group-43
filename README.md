@@ -1,3 +1,34 @@
+# Final Presentation
+## (a)
+   We designed an chrome extension that provides functionality on tomato timer and "To do List".
+   We have also developed functions translating user records data to back-end database
+   Although both front-end and back-end have finished developing, the connection between them have failed due to one member dropped the course.
+   
+## (b)
+  Prepare: Chrome extension tutorial
+  Collaborate: Assign works to each member Jialin He(Default Setting), Jinyu Yang(collecting data), Chang Li(Front-end + Functionality), Yuteng Zhuang(connection)
+  Analyze: Implement functionality and code improvement
+  Report: Test functions and fix compiling error and running errors
+  Decision: Reassigned team work and implemented core tasks in the project
+
+## (c) 
+    1.Install chrome :https://www.google.com/chrome/dr/download
+    2.Clone our directory
+    3.On chrome browser, open extension -> turn on developer mode
+    4.Load our src folder on unpacked project
+    5.Find tomato timer on the extension icon(top right corner)
+## (d)
+    Jialin He(Default Setting), Jinyu Yang(collecting data), Chang Li(Front-end + Functionality)
+
+
+
+
+
+==================================================================================================================================================================
+
+
+
+
 Team 43_Project Proposal
 Jialin He, Jinyu Yang, Yuteng Zhuang(Dropped), Chang Li
   
